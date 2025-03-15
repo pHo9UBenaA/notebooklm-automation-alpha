@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "NotebookLM Automation",
+  "version": "1.0",
+  "description": "Automates NotebookLM workflow",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://notebooklm.google.com/"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "run-automation": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
+      },
+      "description": "Runs the NotebookLM automation"
+    }
+  }
+}
