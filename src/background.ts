@@ -46,8 +46,8 @@ async function runAutomation() {
       func: clickCreateNewButton,
     });
 
-    // 5秒待機
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    // 0.5秒待機
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     // 「Website」ボタンをクリックし、URLを貼り付けて「Insert」ボタンをクリック
     await chrome.scripting.executeScript({
@@ -72,7 +72,7 @@ function waitForTabLoad(tabId: number): Promise<void> {
       if (updatedTabId === tabId && changeInfo.status === "complete") {
         chrome.tabs.onUpdated.removeListener(listener);
         // ページが完全に読み込まれた後、少し待機して確実にDOMが準備されるようにする
-        setTimeout(resolve, 1000);
+        setTimeout(resolve, 500);
       }
     };
 
@@ -223,11 +223,11 @@ function processWebsiteInput(originalUrl: string): void {
             } else {
               console.error("「Insert」ボタンが見つかりませんでした");
             }
-          }, 1000);
+          }, 500);
         } else {
           console.error("URL入力フィールドが見つかりませんでした");
         }
-      }, 1000);
+      }, 500);
     } else {
       console.error("「Website」チップが見つかりませんでした");
     }
